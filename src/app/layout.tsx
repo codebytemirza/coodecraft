@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: '/images/dashboard-preview.png',
+        url: 'https://coodecraft.onrender.com/images/dashboard-preview.png',
         width: 1200,
         height: 630,
         alt: 'CodeCraft Dashboard Preview',
