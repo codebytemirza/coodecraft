@@ -1,0 +1,172 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "C++ Programming Fundamentals",
+      "description": "Learn the basics of C++ programming.",
+      "price": 1000,
+      "image": "/images/course-1-1735173739045.jpg",
+      "duration": "4 weeks",
+      "level": "Beginner",
+      "features": [
+        "Syntax and Variables",
+        "Loops and Conditions",
+        "Basic Programs"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "C++ Object-Oriented Programming",
+      "description": "Master the fundamentals of OOP in C++.",
+      "price": 2000,
+      "image": "/images/course-2-1735173827919.jpg",
+      "duration": "6 weeks",
+      "level": "Intermediate",
+      "features": [
+        "Classes and Objects",
+        "Inheritance",
+        "Polymorphism"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "C++ Data Structures and Algorithms",
+      "description": "Learn DSA concepts in C++ for problem-solving.",
+      "price": 5000,
+      "image": "/images/course-3-1735173925660.png",
+      "duration": "8 weeks",
+      "level": "Advanced",
+      "features": [
+        "Arrays, Stacks, Queues",
+        "Trees and Graphs",
+        "Sorting and Searching Algorithms"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Python Programming Fundamentals",
+      "description": "Learn Python from the ground up.",
+      "price": 1000,
+      "image": "/images/course-4-1735174033082.jpg",
+      "duration": "4 weeks",
+      "level": "Beginner",
+      "features": [
+        "Syntax and Variables",
+        "Loops and Conditions",
+        "Basic Programs"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Python Object-Oriented Programming",
+      "description": "Dive into OOP with Python.",
+      "price": 2000,
+      "image": "/images/course-5-1735174102162.png",
+      "duration": "6 weeks",
+      "level": "Intermediate",
+      "features": [
+        "Classes and Objects",
+        "Inheritance",
+        "Polymorphism"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Python Data Structures and Algorithms",
+      "description": "Master DSA concepts with Python.",
+      "price": 5000,
+      "image": "/images/course-6-1735174159028.jfif",
+      "duration": "8 weeks",
+      "level": "Advanced",
+      "features": [
+        "Lists, Stacks, Queues",
+        "Trees and Graphs",
+        "Sorting and Searching Algorithms"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Python Modules Masterclass",
+      "description": "Advanced course focusing on popular Python libraries.",
+      "price": 6000,
+      "image": "/images/course-7-1735174221204.png",
+      "duration": "6 weeks",
+      "level": "Intermediate",
+      "features": [
+        "NumPy",
+        "Pandas",
+        "Matplotlib"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Machine Learning",
+      "description": "Comprehensive course on machine learning.",
+      "price": 10000,
+      "image": "/images/course-8-1735174266044.png",
+      "duration": "12 weeks",
+      "level": "Advanced",
+      "features": [
+        "Supervised Learning",
+        "Unsupervised Learning",
+        "Model Evaluation"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Deep Learning",
+      "description": "Dive into advanced neural networks and deep learning.",
+      "price": 12000,
+      "image": "/images/course-9-1735174303874.png",
+      "duration": "12 weeks",
+      "level": "Advanced",
+      "features": [
+        "Neural Networks",
+        "CNNs and RNNs",
+        "Transfer Learning"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Generative AI",
+      "description": "Learn to build generative AI applications.",
+      "price": 15000,
+      "image": "/images/course-10-1735174355077.webp",
+      "duration": "14 weeks",
+      "level": "Advanced",
+      "features": [
+        "GANs",
+        "Transformers",
+        "Large Language Models"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Web Development with HTML, CSS, JavaScript",
+      "description": "Learn the basics of front-end web development.",
+      "price": 3000,
+      "image": "/images/course-11-1735174386394.jpg",
+      "duration": "6 weeks",
+      "level": "Beginner",
+      "features": [
+        "HTML5",
+        "CSS3",
+        "JavaScript Basics"
+      ]
+    },
+    {
+      "id": 1735199410535,
+      "title": "Mern Stack Development 2025",
+      "description": "advance full stack development course",
+      "price": 10000,
+      "image": "/images/course-1735199410535-1735199508345.jpg",
+      "features": [
+        "Node js",
+        "Next js",
+        "Mongodb",
+        "react",
+        "express js"
+      ]
+    }
+  ]
+}
