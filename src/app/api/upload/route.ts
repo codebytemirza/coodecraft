@@ -1,29 +1,49 @@
 import { NextResponse } from 'next/server';
-import { writeFile } from 'fs/promises';
-import path from 'path';
+import { MongoClient, GridFSBucket } from 'mongodb';
+import { Readable } from 'stream';
+
+const uri = "mongodb+srv://admin:codecraft@codecraftcluster.xf7di.mongodb.net/?retryWrites=true&w=majority&appName=CodeCraftCluster";
 
 export async function POST(request: Request) {
+  const client = new MongoClient(uri);
+
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
-    const courseId = formData.get('courseId');
-
+    
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    await client.connect();
+    const db = client.db("codecraft");
+    const bucket = new GridFSBucket(db, { bucketName: 'images' });
 
-    const fileName = `course-${courseId}-${Date.now()}${path.extname(file.name)}`;
-    const imagePath = path.join(process.cwd(), 'public', 'images', fileName);
+    // Convert File to Buffer
+    const buffer = Buffer.from(await file.arrayBuffer());
     
-    await writeFile(imagePath, buffer);
+    // Create a readable stream from the buffer
+    const stream = Readable.from(buffer);
 
-    return NextResponse.json({ 
-      imagePath: `/images/${fileName}`
+    // Upload to GridFS
+    const uploadStream = bucket.openUploadStream(file.name, {
+      contentType: file.type
     });
+
+    await new Promise((resolve, reject) => {
+      stream.pipe(uploadStream)
+        .on('error', reject)
+        .on('finish', resolve);
+    });
+
+    const imageUrl = `/api/images/${uploadStream.id}`;
+
+    return NextResponse.json({ imageUrl });
+
   } catch (error) {
+    console.error('Upload error:', error);
     return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
+  } finally {
+    await client.close();
   }
 }

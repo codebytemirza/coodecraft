@@ -1,17 +1,66 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import coursesData from '@/data/courses.json';
 import { SITE_CONFIG } from '@/constants/config';
 
+interface Course {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+  duration: string;
+  level: string;
+  features: string[];
+}
+
 export default function Courses() {
-  const [filter, setFilter] = useState('all');
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  const fetchCourses = async () => {
+    try {
+      const response = await fetch('/api/courses');
+      if (!response.ok) throw new Error('Failed to fetch courses');
+      const data = await response.json();
+      setCourses(data.courses);
+    } catch (err) {
+      setError('Failed to load courses. Please try again later.');
+      console.error('Error fetching courses:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleEnrollNow = (courseTitle: string) => {
     const message = encodeURIComponent(`I'm interested in enrolling in ${courseTitle}`);
     window.open(`https://wa.me/${SITE_CONFIG.contact.phone}?text=${message}`, '_blank');
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary-600"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-2">Error</h2>
+          <p className="text-gray-600">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section id="courses" className="py-20 bg-gray-50 relative overflow-hidden">
@@ -34,9 +83,9 @@ export default function Courses() {
 
         {/* Course Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {coursesData.courses.map((course, index) => (
+          {courses.map((course, index) => (
             <motion.div
-              key={course.id}
+              key={course._id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -66,13 +115,12 @@ export default function Courses() {
                   </span>
                 </div>
 
-                {/* Title with Gradient */}
                 <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform">
                   {course.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{course.description}</p>
 
-                {/* Features with Enhanced Icons */}
+                {/* Features */}
                 <div className="space-y-3 mb-6">
                   {course.features.map((feature, idx) => (
                     <div 
