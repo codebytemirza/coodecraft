@@ -42,7 +42,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50 opacity-70" />
-      
+
       <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +102,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 peer"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 peer text-gray-900"
                     placeholder=" "
                   />
                   <label
@@ -120,7 +120,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 peer"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 peer text-gray-900"
                     placeholder=" "
                   />
                   <label
@@ -138,7 +138,7 @@ export default function Contact() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 peer"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 peer text-gray-900"
                     placeholder=" "
                   />
                   <label
@@ -152,8 +152,8 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="mt-6 w-full py-3 px-6 rounded-lg text-white font-medium 
-                bg-gradient-to-r from-primary-600 to-secondary-600 hover:scale-[1.02] 
+                className="mt-6 w-full py-3 px-6 rounded-lg text-white font-medium
+                bg-gradient-to-r from-primary-600 to-secondary-600 hover:scale-[1.02]
                 transition-all duration-300 transform hover:shadow-lg"
               >
                 Send via WhatsApp

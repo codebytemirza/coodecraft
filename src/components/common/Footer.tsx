@@ -12,12 +12,12 @@ export default function Footer() {
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       // You can replace this with actual API call
-      
+
       setStatus('success');
       setEmail('');
       setTimeout(() => setStatus('idle'), 3000);
@@ -58,7 +58,9 @@ export default function Footer() {
     <footer className="relative bg-gray-900 text-white overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary-900 to-secondary-900 opacity-90" />
-      
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-15"></div>
+
       {/* Content */}
       <div className="relative container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -99,7 +101,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
@@ -133,12 +135,12 @@ export default function Footer() {
                 className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-primary-500"
                 required
               />
-              <button 
+              <button
                 type="submit"
                 disabled={status === 'loading'}
-                className={`px-6 py-2 rounded-lg transition-all transform hover:scale-105 
-                  ${status === 'loading' 
-                    ? 'bg-gray-600 cursor-not-allowed' 
+                className={`px-6 py-2 rounded-lg transition-all transform hover:scale-105
+                  ${status === 'loading'
+                    ? 'bg-gray-600 cursor-not-allowed'
                     : 'bg-gradient-to-r from-primary-600 to-secondary-600 hover:shadow-lg'
                   }`}
               >

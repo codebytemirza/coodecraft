@@ -11,7 +11,7 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-15"></div>
       
       <div className="container mx-auto px-4 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

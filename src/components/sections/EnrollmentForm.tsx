@@ -118,7 +118,7 @@ Thank you.`;
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-lg w-full max-w-[600px] max-h-[90vh] overflow-y-auto relative">
-        <button 
+        <button
           onClick={onClose}
           className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
           aria-label="Close form"
@@ -149,7 +149,7 @@ Thank you.`;
           <form onSubmit={handleSubmit} className="space-y-6">
             <input type="hidden" name="course" value={course?.title} />
             <input type="hidden" name="_subject" value={`New enrollment for ${course?.title}`} />
-            
+
             <div className="space-y-2">
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                 Full Name
@@ -159,7 +159,7 @@ Thank you.`;
                 name="name"
                 required
                 placeholder="Enter your full name"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-900"
               />
             </div>
 
@@ -173,22 +173,21 @@ Thank you.`;
                 name="email"
                 required
                 placeholder="Enter your email address"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-900"
               />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="cnic" className="block text-sm font-medium text-gray-700">
-                CNIC Number
+              <label htmlFor="age" className="block text-sm font-medium text-gray-700">
+                Age
               </label>
               <input
-                id="cnic"
-                name="cnic"
+                id="age"
+                name="age"
+                type="number"
                 required
-                placeholder="Enter 13-digit CNIC number"
-                pattern="[0-9]{13}"
-                title="Please enter a valid 13-digit CNIC number"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                placeholder="Enter your age"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-900"
               />
             </div>
 
@@ -202,7 +201,7 @@ Thank you.`;
                 type="tel"
                 required
                 placeholder="Enter WhatsApp number with country code"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-900"
               />
             </div>
 
@@ -215,7 +214,7 @@ Thank you.`;
                 name="transactionId"
                 required
                 placeholder="Enter transaction ID from payment message"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-900"
               />
             </div>
 
