@@ -1,13 +1,18 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import type { Metadata } from 'next';
+import type { Viewport } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'CoodeCraft',
   description: 'Learn coding with CodeCraft',
-  viewport: 'width=device-width, initial-scale=1',
   openGraph: {
     images: [
       {

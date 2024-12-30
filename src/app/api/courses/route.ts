@@ -1,16 +1,22 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { MongoClient } from 'mongodb';
 
-const dataPath = path.join(process.cwd(), 'src/data/courses.json');
+// Configuration
+const uri = "mongodb+srv://abdullah:siteadmin@site.6orgr.mongodb.net/?retryWrites=true&w=majority&appName=site";
+const dbName = "codecraft";
 
 export async function GET() {
-  const data = await fs.readFile(dataPath, 'utf8');
-  return NextResponse.json(JSON.parse(data));
-}
+  const client = new MongoClient(uri);
 
-export async function POST(request: Request) {
-  const data = await request.json();
-  await fs.writeFile(dataPath, JSON.stringify(data, null, 2));
-  return NextResponse.json({ success: true });
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const courses = await db.collection("courses").find().toArray();
+    return NextResponse.json(courses);
+  } catch (error) {
+    console.error('Error fetching courses:', error);
+    return NextResponse.json({ error: 'Failed to fetch courses' }, { status: 500 });
+  } finally {
+    await client.close();
+  }
 }
