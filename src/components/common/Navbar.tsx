@@ -206,7 +206,7 @@ export default function Navbar() {
                   }}
                   className="block w-full px-6 py-3 bg-primary-600 text-white rounded-full font-semibold text-center hover:bg-primary-700 transition-colors"
                 >
-                  Chat with AI Advisor
+                  Chat with Advisor
                 </button>
               </div>
             </motion.div>
