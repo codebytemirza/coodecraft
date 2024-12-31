@@ -78,7 +78,7 @@ I have attached my payment screenshot for verification.
 
 Thank you.`;
 
-    const mailtoLink = `logixcellacademy@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:logixcellacademy@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     window.location.href = mailtoLink;
   };
 
