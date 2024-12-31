@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-    name: 'CodeCraft Academy',
+    name: 'Logixcell Academy',
     description: 'Transforming Careers Through Code',
     contact: {
       phone: '+923088403978',

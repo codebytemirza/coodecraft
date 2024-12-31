@@ -26,7 +26,7 @@ const groq = new Groq({
   dangerouslyAllowBrowser: true
 });
 
-const SYSTEM_PROMPT = `You are CodeCraft's expert AI sales agent. Your role is to help students choose and enroll in our programming courses.
+const SYSTEM_PROMPT = `You are Logixcell's expert AI sales agent. Your role is to help students choose and enroll in our programming courses.
 Course prices are in PKR
 AVAILABLE COURSES:
 {{courses}}
@@ -128,17 +128,17 @@ export default function Navbar() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="relative w-10 h-10 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-lg overflow-hidden">
+              <div className="relative w-10 h-10">
                 <Image
                   src="/images/brand-icon.png"
                   alt="Brand Icon"
                   width={40}
                   height={40}
-                  className="object-cover mix-blend-overlay"
+                  className="object-cover"
                   priority
                 />
               </div>
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">
+              <span className="text-2xl font-bold text-primary-600">
                 {SITE_CONFIG.name}
               </span>
             </Link>
@@ -232,15 +232,15 @@ export default function Navbar() {
               )}
               {chatMessages.map((msg, idx) => (
                 <div
-                key={idx}
-                className={`p-3 rounded-lg max-w-[80%] ${
-                  msg.role === 'user'
-                    ? 'bg-blue-500 ml-auto text-white'
-                    : 'bg-gray-200 text-gray-800'
-                }`}
-              >
-                {msg.content}
-              </div>              
+                  key={idx}
+                  className={`p-3 rounded-lg max-w-[80%] ${
+                    msg.role === 'user'
+                      ? 'bg-blue-500 ml-auto text-white'
+                      : 'bg-gray-200 text-gray-800'
+                  }`}
+                >
+                  {msg.content}
+                </div>
               ))}
               {isLoading && (
                 <div className="bg-gray-100 p-3 rounded-lg animate-pulse text-gray-800">

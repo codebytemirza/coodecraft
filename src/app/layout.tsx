@@ -13,10 +13,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'CodeCraft - Learn Coding the Right Way',
   description: 'Join CodeCraft to master coding skills with easy-to-follow tutorials, interactive exercises, and expert guidance. Perfect for beginners and pros alike.',
-  keywords: ['coding', 'programming', 'learn coding', 'CodeCraft', 'interactive coding tutorials', 'programming courses'],
+  keywords: ['coding', 'programming', 'learn coding', 'Logixcell', 'interactive coding tutorials', 'programming courses'],
   openGraph: {
-    title: 'CodeCraft - Learn Coding the Right Way',
-    description: 'Master coding with interactive tutorials and expert guidance. Start your programming journey today with CodeCraft!',
+    title: 'Logixcell - Learn Coding the Right Way',
+    description: 'Master coding with interactive tutorials and expert guidance. Start your programming journey today with Logixcell!',
     url: 'https://coodecraft.onrender.com',
     images: [
       {

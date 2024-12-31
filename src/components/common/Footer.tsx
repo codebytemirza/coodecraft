@@ -64,7 +64,7 @@ export default function Footer() {
       {/* Content */}
       <div className="relative container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand Section */}
+          {/* Brand Section - Updated with white background */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,13 +72,13 @@ export default function Footer() {
             className="space-y-4"
           >
             <Link href="/" className="flex items-center space-x-2">
-              <div className="relative w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg overflow-hidden">
+              <div className="relative w-10 h-10 bg-white rounded-lg overflow-hidden">
                 <Image
                   src="/images/brand-icon.png"
                   alt="Brand Icon"
                   width={40}
                   height={40}
-                  className="object-cover mix-blend-overlay"
+                  className="object-cover"
                   priority
                 />
               </div>
