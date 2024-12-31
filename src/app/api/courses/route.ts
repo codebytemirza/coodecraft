@@ -61,7 +61,7 @@ function validateBatch(batch: BatchInput): Batch {
 
 function validateCourse(course: CourseInput): Partial<Course> {
     if (!course.title) throw new Error('Course title is required');
-    
+
     const validatedCourse: Partial<Course> = {
         title: String(course.title),
         description: String(course.description || ''),
@@ -92,7 +92,7 @@ export async function GET() {
             .find()
             .sort({ createdAt: -1 })
             .toArray();
-        
+
         const processedCourses = courses.map(course => ({
             ...course,
             _id: course._id.toString(),
@@ -138,11 +138,11 @@ export async function POST(request: Request) {
                         }
                     }
                 );
-                
+
                 if (updateResult.matchedCount === 0) {
                     throw new Error(`Course not found with ID: ${course._id}`);
                 }
-                
+
                 return updateResult;
             } else {
                 const newCourse: Course = {
@@ -164,13 +164,13 @@ export async function POST(request: Request) {
         });
 
         await Promise.all(operations);
-        
+
         // After successful update, return the updated courses
         const updatedCourses = await coursesCollection
             .find()
             .sort({ createdAt: -1 })
             .toArray();
-        
+
         const processedCourses = updatedCourses.map(course => ({
             ...course,
             _id: course._id.toString(),
@@ -181,14 +181,14 @@ export async function POST(request: Request) {
             }))
         }));
 
-        return NextResponse.json({ 
-            success: true, 
-            courses: processedCourses 
+        return NextResponse.json({
+            success: true,
+            courses: processedCourses
         });
     } catch (error) {
         console.error('Error updating courses:', error);
-        return NextResponse.json({ 
-            error: error instanceof Error ? error.message : 'Failed to update courses' 
+        return NextResponse.json({
+            error: error instanceof Error ? error.message : 'Failed to update courses'
         }, { status: 500 });
     } finally {
         await client.close();
@@ -209,11 +209,11 @@ export async function DELETE(request: Request) {
         const db = client.db(dbName);
 
         const course = await db.collection<Course>("courses").findOne({ _id: new ObjectId(id) });
-        if (course?.batches?.some(batch => 
+        if (course?.batches?.some(batch =>
             batch.status === 'ongoing' && batch.enrolledStudents > 0
         )) {
-            return NextResponse.json({ 
-                error: 'Cannot delete course with active enrollments' 
+            return NextResponse.json({
+                error: 'Cannot delete course with active enrollments'
             }, { status: 400 });
         }
 

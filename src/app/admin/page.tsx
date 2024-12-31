@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Calendar, Clock, Users, DollarSign, Image as ImageIcon, ChevronDown, ChevronRight, Plus, Save, Trash2, X, BookOpen, Target } from 'lucide-react';
+import { Calendar, Clock, DollarSign, Image as ImageIcon, ChevronDown, ChevronRight, Plus, Save, Trash2, X, Target } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 interface Batch {
@@ -27,7 +27,7 @@ interface Course {
   updatedAt?: Date;
 }
 
-export default function AdminDashboard() {
+const AdminDashboard = () => {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isAuth, setIsAuth] = useState(false);
   const [password, setPassword] = useState('');
@@ -454,11 +454,11 @@ export default function AdminDashboard() {
           <AlertDescription>{notification.message}</AlertDescription>
         </Alert>
       )}
-      
+
       <div className="max-w-6xl mx-auto space-y-6">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center">
           <h1 className="text-3xl font-bold text-white">Course Management</h1>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mt-4 md:mt-0">
             <button
               onClick={handleAddCourse}
               className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
@@ -529,7 +529,7 @@ export default function AdminDashboard() {
                       Batch Management
                     </button>
                   </div>
-                  
+
                   {activeTab === 'details' ? renderCourseDetails(course) : renderBatchesTab(course)}
                 </div>
               )}
@@ -539,4 +539,6 @@ export default function AdminDashboard() {
       </div>
     </div>
   );
-}
+};
+
+export default AdminDashboard;
