@@ -60,7 +60,7 @@ export default function Courses() {
   };
 
   const getActiveBatch = (batches: Batch[]) => {
-    return batches.find(batch => 
+    return batches.find(batch =>
       (filter === 'all' && (batch.status === 'upcoming' || batch.status === 'ongoing')) ||
       (filter === 'upcoming' && batch.status === 'upcoming') ||
       (filter === 'ongoing' && batch.status === 'ongoing')
@@ -113,7 +113,7 @@ export default function Courses() {
     <section className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,rgba(120,119,198,0.1),transparent)]" />
       <div className="absolute inset-0 bg-grid-primary-600/[0.02] bg-[size:20px_20px]" />
-      
+
       <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -126,11 +126,11 @@ export default function Courses() {
             <Star className="w-4 h-4" />
             <span className="text-sm font-medium">Premium Quality Courses</span>
           </div>
-          
+
           <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-800">
             Explore Our Courses
           </h2>
-          
+
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
             Master modern technologies with our expertly crafted courses designed for all skill levels
           </p>
@@ -141,7 +141,7 @@ export default function Courses() {
                 key={f}
                 onClick={() => setFilter(f as typeof filter)}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                  filter === f 
+                  filter === f
                     ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/20'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
@@ -152,10 +152,10 @@ export default function Courses() {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
           {courses.map((course, index) => {
             const activeBatch = getActiveBatch(course.batches);
-            
+
             return (
               <motion.div
                 key={course._id}
@@ -175,11 +175,11 @@ export default function Courses() {
                       {course.level === 'Advanced' && <Star className="w-5 h-5 text-purple-300" />}
                       <span className="text-white/80 text-sm">{course.level}</span>
                     </div>
-                    
+
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:translate-x-2 transition-transform">
                       {course.title}
                     </h3>
-                    
+
                     <div className="flex gap-3">
                       <span className="inline-flex items-center gap-1 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-sm text-white">
                         <Clock className="w-4 h-4" />
@@ -205,18 +205,18 @@ export default function Courses() {
                           {activeBatch.status}
                         </span>
                       </div>
-                      
+
                       <div className="space-y-3 text-sm">
                         <div className="flex justify-between items-center text-gray-600">
                           <span>Duration</span>
                           <span className="font-medium">{formatDate(activeBatch.startDate)} - {formatDate(activeBatch.endDate)}</span>
                         </div>
-                        
+
                         <div className="flex justify-between items-center text-gray-600">
                           <span>Batch Code</span>
                           <span className="font-mono bg-gray-100 px-2 py-1 rounded">{activeBatch.batchCode}</span>
                         </div>
-                        
+
                         <div className="flex justify-between items-center">
                           <span className="text-gray-600">
                             <Users className="w-4 h-4 inline mr-1" />
@@ -261,8 +261,8 @@ export default function Courses() {
                         disabled:hover:shadow-none"
                       disabled={!activeBatch || activeBatch.seats - activeBatch.enrolledStudents <= 0}
                     >
-                      {!activeBatch ? 'No Batch Available' : 
-                       activeBatch.seats - activeBatch.enrolledStudents <= 0 ? 'Batch Full' : 
+                      {!activeBatch ? 'No Batch Available' :
+                       activeBatch.seats - activeBatch.enrolledStudents <= 0 ? 'Batch Full' :
                        'Enroll Now'}
                     </button>
                   </div>
@@ -274,7 +274,7 @@ export default function Courses() {
 
         <AnimatePresence>
           {isFormOpen && (
-            <EnrollmentForm 
+            <EnrollmentForm
               course={selectedCourse}
               isOpen={isFormOpen}
               onClose={() => {
