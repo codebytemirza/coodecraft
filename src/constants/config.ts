@@ -1,9 +1,9 @@
 export const SITE_CONFIG = {
-    name: 'Logixcell Academy',
+    name: 'Logixcell',
     description: 'Transforming Careers Through Code',
     contact: {
       phone: '+923088403978',
-      email: 'abdullahcodewizard@gmail.com',
+      email: 'logixcellacademy@gmail.com',
       address: 'Silicon Valley, CA'
     },
     social: {
