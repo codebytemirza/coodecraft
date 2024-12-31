@@ -78,7 +78,7 @@ I have attached my payment screenshot for verification.
 
 Thank you.`;
 
-    const mailtoLink = `mailto:abdullahcodewizard@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `logixcellacademy@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     window.location.href = mailtoLink;
   };
 
@@ -135,7 +135,7 @@ Thank you.`;
             <p className="text-blue-700 mt-2">
               1. Send payment of Rs. {course?.price} via JazzCash to:
             </p>
-            <p className="text-blue-900 font-bold text-lg mt-1">+92 328 4119134</p>
+            <p className="text-blue-900 font-bold text-lg mt-1">+92 328 4119134 Muhammad Abdullah</p>
             <p className="text-blue-700 mt-2">
               2. Save the payment confirmation message/screenshot
             </p>
