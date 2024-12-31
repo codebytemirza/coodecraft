@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Logixcell - Learn Coding the Right Way',
     description: 'Master coding with interactive tutorials and expert guidance. Start your programming journey today with Logixcell!',
-    url: 'https://coodecraft.onrender.com',
+    url: 'https://logicell.onrender.com',
     images: [
       {
-        url: 'https://coodecraft.onrender.com/_next/image?url=%2Fimages%2Fdashboard-preview.png&w=1200&q=75',
+        url: 'https://logixcell.onrender.com/_next/image?url=%2Fimages%2Fdashboard-preview.png&w=1200&q=75',
         width: 1200,
         height: 630,
         alt: 'Logixcell Dashboard Preview',
