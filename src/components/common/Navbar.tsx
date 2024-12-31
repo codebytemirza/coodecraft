@@ -121,9 +121,7 @@ export default function Navbar() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
-        }`}
+        className={`fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-lg shadow-lg`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
@@ -148,27 +146,21 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`transition-colors ${
-                    isScrolled ? 'text-gray-700' : 'text-white'
-                  } hover:text-primary-500`}
+                  className="transition-colors text-gray-700 hover:text-primary-500"
                 >
                   {item.name}
                 </Link>
               ))}
               <button
                 onClick={() => setIsChatOpen(true)}
-                className={`px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105 ${
-                  isScrolled
-                    ? 'bg-primary-600 text-white hover:bg-primary-700'
-                    : 'bg-white text-primary-600 hover:bg-primary-50'
-                }`}
+                className="px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105 bg-primary-600 text-white hover:bg-primary-700"
               >
                 Chat with Advisor
               </button>
             </div>
 
             <button
-              className="md:hidden p-2"
+              className="md:hidden p-2 text-primary-600"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">

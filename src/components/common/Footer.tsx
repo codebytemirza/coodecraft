@@ -6,27 +6,6 @@ import { motion } from 'framer-motion';
 import { SITE_CONFIG } from '@/constants/config';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      // You can replace this with actual API call
-
-      setStatus('success');
-      setEmail('');
-      setTimeout(() => setStatus('idle'), 3000);
-    } catch (error) {
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
-    }
-  };
-
   const footerLinks = [
     {
       title: 'Company',
@@ -113,48 +92,6 @@ export default function Footer() {
             </motion.div>
           ))}
         </div>
-
-        {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 pt-8 border-t border-gray-800"
-        >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Subscribe to our newsletter</h3>
-              <p className="text-gray-400">Get the latest updates and resources</p>
-            </div>
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-primary-500"
-                required
-              />
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className={`px-6 py-2 rounded-lg transition-all transform hover:scale-105
-                  ${status === 'loading'
-                    ? 'bg-gray-600 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-primary-600 to-secondary-600 hover:shadow-lg'
-                  }`}
-              >
-                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
-              </button>
-            </form>
-            {status === 'success' && (
-              <p className="text-green-500 mt-2">Successfully subscribed!</p>
-            )}
-            {status === 'error' && (
-              <p className="text-red-500 mt-2">Failed to subscribe. Please try again.</p>
-            )}
-          </div>
-        </motion.div>
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
