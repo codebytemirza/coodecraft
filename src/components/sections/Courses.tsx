@@ -110,7 +110,7 @@ export default function Courses() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
+    <section id="courses" className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,rgba(120,119,198,0.1),transparent)]" />
       <div className="absolute inset-0 bg-grid-primary-600/[0.02] bg-[size:20px_20px]" />
 
